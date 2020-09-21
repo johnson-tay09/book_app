@@ -19,7 +19,7 @@ app.use(cors());
 // routes
 app.get('/', renderHomePage);
 // app.get('/hello', testPage);
-// app.get('/searchform', renderSearchForm);
+app.get('/searchform', renderSearchForm);
 // app.post('/searches', collectFormInformation);
 
 // function testPage(request, response) {
@@ -31,10 +31,10 @@ function renderHomePage(request, response) {
 	response.render('pages/index');
 }
 
-// function renderSearchForm(request, response) {
-// 	// render the search form
-// 	response.render('pages/searches/new.ejs');
-// }
+function renderSearchForm(request, response) {
+	// render the search form
+	response.render('pages/searches/new.ejs');
+}
 
 // function collectFormInformation(request, response) {
 // 	// collect form information
