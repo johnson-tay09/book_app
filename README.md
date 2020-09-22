@@ -1,14 +1,12 @@
-# book_app
-
-# Project Name
+# The Book App
 
 **Author**: Taylor Johnson, Specner Lazzar
-**Version**: 1.0.0 
+**Version**: 1.0.0
 Write the JS and EJS to pull book queries from google API. Search by title or author.
 
 ## Feature Task Time Estimate
 
-Feature #1: Setup the repo 
+Feature #1: Setup the repo
 
 Estimate of time needed to complete: 10min.
 
