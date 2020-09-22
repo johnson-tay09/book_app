@@ -69,7 +69,7 @@ function collectFormInformation(request, response) {
 
 function Book(book) {
 	this.image = book.imageLinks
-		? book.imageLinks.thumbnail
+		? book.imageLinks.thumbnail.replace(/^http:\/\//i, 'https://')
 		: 'https://i.imgur.com/J5LVHEL.jpg';
 	this.title = book.title;
 	this.author = book.authors;
