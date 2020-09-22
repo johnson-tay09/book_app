@@ -3,25 +3,40 @@
 # Project Name
 
 **Author**: Taylor Johnson, Specner Lazzar
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.0 
+Write the JS and EJS to pull book queries from google API. Search by title or author.
 
 ## Feature Task Time Estimate
 
-Feature #1: Setup the repo Estimate of time needed to complete: 20min.
+Feature #1: Setup the repo 
+
+Estimate of time needed to complete: 10min.
 
 Start time:1:00
 
-Finish time:1:30
+Finish time:1:10
 
-Actual time needed to complete:30min
+Actual time needed to complete:10min
 
-Feature #2: Location query Estimate of time needed to complete: 1hours.
+Feature #2: Create basic server with search results
 
-Start time:2:40
+Estimate of time needed to complete: 2hours.
 
-Finish time:4:40
+Start time:1:10
 
-Actual time needed to complete:120min
+Finish time:4:10
+
+Actual time needed to complete:180min
+
+Feature #3: Style with CSS for mobile and desktop
+
+Estimate of time needed to complete: 1hours.
+
+Start time:4:10
+
+Finish time:5:40
+
+Actual time needed to complete:90min
 
 ## Overview
 
