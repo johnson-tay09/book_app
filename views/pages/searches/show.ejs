@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<meta
+			name="”viewport”"
+			content="”width"
+			="device-width,"
+			initial-scale="1”"
+		/>
+		<link rel="stylesheet" href="./styles/reset.css" />
+		<link rel="stylesheet" href="./styles/base.css" />
+		<link rel="stylesheet" href="./styles/layout.css" />
+		<link rel="stylesheet" href="./styles/modules.css" />
 		<title>Book Collection</title>
 	</head>
 	<body>
 		<main>
-			<ul>
-				<% bananas.forEach(book => { %>
-				<li><img src="<%= book.image %>" /></li>
-				<li><%= book.title %></li>
-				<li><%= book.author %></li>
-				<li><%= book.description %></li>
-				<% }) %>
-			</ul>
+			<div class="books">
+				<ul>
+					<% bookResults.forEach(book => { %>
+						<section>
+					<li class="book"><img src="<%= book.image %>" /></li>
+					<li class="title"><h1><%= book.title %></li>
+					<li class="author"><h3><%= book.author %></h3></li>
+					<li class="description"><p><%= book.description %></p></li>
+				</section>
+					<% }) %>
+				</ul>
+			</div>
 		</main>
 	</body>
 </html>

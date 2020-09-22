@@ -21,6 +21,9 @@ app.get('/', renderHomePage);
 // app.get('/hello', testPage);
 app.get('/searchform', renderSearchForm);
 app.post('/searches', collectFormInformation);
+app.get('/error', (request, response) => {
+	response.render('pages/error.ejs');
+});
 
 // function testPage(request, response) {
 // 	response.render('pages/index');
@@ -59,12 +62,12 @@ function collectFormInformation(request, response) {
 		//a book is an object with key value pairs
 		const finalBookArray = bookArray.map((book) => new Book(book.volumeInfo));
 
-		response.render('pages/searches/show', { bananas: finalBookArray });
+		response.render('pages/searches/show', { bookResults: finalBookArray });
 	});
 }
 
 function Book(book) {
-	this.image = book.imageLinks.thumbnail
+	this.image = book.imageLinks
 		? book.imageLinks.thumbnail
 		: 'https://i.imgur.com/J5LVHEL.jpg';
 	this.title = book.title;
