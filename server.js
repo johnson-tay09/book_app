@@ -24,7 +24,7 @@ app.use(cors());
 
 // routes
 app.get('/', renderHomePage);
-// app.get('/hello', testPage);
+app.get('/books/:book_id', getOneBook); // pages/layout/detail-view.ejs
 app.get('/searchform', renderSearchForm);
 app.post('/searches', collectFormInformation);
 app.get('/error', (request, response) => {
@@ -41,7 +41,23 @@ function renderHomePage(request, response) {
 		response.status(200).render('pages/index.ejs', { value: allBooks });
 	});
 }
+//======================
+function getOneBook(request, response) {
+	const id = request.params.book_id;
+	console.log('in the get one book', id);
 
+	// now that I have the id, I can use it to look up the task in the database using the id, pull it out and display it to the user
+
+	const sql = 'SELECT * FROM books WHERE id=$1;';
+	const safeValues = [id];
+	client.query(sql, safeValues).then((results) => {
+		console.log(results);
+		// results.rows will look like this: [{my task}]
+		const myChosenBook = results.rows[0];
+		response.render('pages/books/detail', { value: myChosenBook });
+	});
+}
+//===========================
 function renderSearchForm(request, response) {
 	// render the search form
 	response.render('pages/searches/new.ejs');

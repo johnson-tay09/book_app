@@ -51,6 +51,16 @@ Finish time:2:00
 
 Actual time needed to complete:90min
 
+Feature #2: Single Book Render
+
+Estimate of time needed to complete: 2hr.
+
+Start time:2:00
+
+Finish time:2:30
+
+Actual time needed to complete:30min
+
 ## Schema
 
 DROP TABLE IF EXISTS books;
