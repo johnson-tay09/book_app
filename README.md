@@ -36,6 +36,34 @@ Finish time:5:40
 
 Actual time needed to complete:90min
 
+**Version**: 1.1.0
+Incorporate Database
+
+## Feature Task Time Estimate
+
+Feature #1: Setup Database
+
+Estimate of time needed to complete: 2hr.
+
+Start time:12:30
+
+Finish time:2:00
+
+Actual time needed to complete:90min
+
+## Schema
+
+DROP TABLE IF EXISTS books;
+
+CREATE TABLE books(
+id SERIAL PRIMARY KEY,
+author VARCHAR(255),
+title VARCHAR(255),
+isbn VARCHAR(255),
+img_url VARCHAR(255),
+description TEXT
+)
+
 ## Overview
 
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code 301 class. (i.e. What's your problem domain?) -->

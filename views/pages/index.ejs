@@ -13,8 +13,18 @@
 			<a href="/searchform">search</a>
 		</header>
 		<main>
-			<h4>My Book Collection</h4>
-			<!-- eventually, this will hold all of the users favorite books from the database -->
+			<p><%= value.length %></p>
+			<h4>Saved Books</h4>
+			<ul>
+				<% value.forEach(book => { %>
+				<section>
+					<li><p><%= book.img_url %></p></li>
+					<li><p><%= book.title %></p></li>
+					<li><h2><%= book.author %></h2></li>
+					<li><a href="#">View Details</a></li>
+				</section>
+				<%})%>
+			</ul>
 		</main>
 	</body>
 </html>
