@@ -6,6 +6,7 @@ const app = express();
 require('ejs');
 const superagent = require('superagent');
 const cors = require('cors');
+require('dotenv').config();
 
 // bring in my middleware
 app.set('view engine', 'ejs');
@@ -13,7 +14,7 @@ app.use(express.static('./public'));
 app.use(express.urlencoded({ extended: true }));
 
 // global variables
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.use(cors());
 
 // routes
