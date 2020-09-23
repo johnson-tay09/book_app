@@ -71,6 +71,16 @@ Finish time:5:00
 
 Actual time needed to complete:2.5hr
 
+Feature #4: More CSS
+
+Estimate of time needed to complete: 0.5hr.
+
+Start time:5:00
+
+Finish time:6:00
+
+Actual time needed to complete:1hr
+
 ## Schema
 
 DROP TABLE IF EXISTS books;
