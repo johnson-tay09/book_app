@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="../styles/base.css" />
 		<link rel="stylesheet" href="../styles/layout.css" />
 		<link rel="stylesheet" href="../styles/modules.css" />
+
 		<title>Book Collection</title>
 	</head>
 	<body>
@@ -18,8 +19,24 @@
 					<li><h3><%= value.author %></h3></li>
 					<li><p><%= value.description %></p></li>
 					<li><h2>ISBN: <%= value.isbn %></h2></li>
+					<button id="formButton" type="button">Update Details</button>
+					<form action="/delete/<%= value.id %>?_method=DELETE" method="POST">
+						<button>Delete Book</button>
+					</form>
+					<form
+						id="updateForm"
+						action="/update/<%= value.id %>?_method=PUT"
+						method="POST"
+					>
+						<fieldset><%- include('../../layout/edit') %></fieldset>
+						<button type="submit">Update Book</button>
+					</form>
 				</section>
 			</ul>
 		</main>
 	</body>
+	<footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="../../js/app.js"></script>
+	</footer>
 </html>

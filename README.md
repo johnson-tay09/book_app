@@ -81,6 +81,21 @@ Finish time:6:00
 
 Actual time needed to complete:1hr
 
+**Version**: 1.2.0
+Update and Delete
+
+## Feature Task Time Estimate
+
+Feature #1: add Update functionality
+
+Estimate of time needed to complete: 2hr.
+
+Start time:12:30
+
+Finish time:4:30
+
+Actual time needed to complete:4 hrs
+
 ## Schema
 
 DROP TABLE IF EXISTS books;
