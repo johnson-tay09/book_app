@@ -96,6 +96,16 @@ Finish time:4:30
 
 Actual time needed to complete:4 hrs
 
+Feature #2: add Delete
+
+Estimate of time needed to complete: 30min.
+
+Start time:4:30
+
+Finish time:4:50
+
+Actual time needed to complete: 20min
+
 ## Schema
 
 DROP TABLE IF EXISTS books;
