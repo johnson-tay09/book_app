@@ -24,13 +24,43 @@ app.use(cors());
 
 // routes
 app.get('/', renderHomePage);
-app.get('/books/:book_id', getOneBook); // pages/layout/detail-view.ejs
+app.get('/books/:book_id', getOneBook);
+app.post('/books', saveBook);
+
 app.get('/searchform', renderSearchForm);
 app.post('/searches', collectFormInformation);
 app.get('/error', (request, response) => {
 	response.render('pages/error.ejs');
 });
+//============
+function saveBook(request, response) {
+	// collect the information from the form
+	// console.log(request.body);
+	// {
+	//   title: 'sort through stuff',
+	//   description: 'parse the house',
+	//   category: 'haunted',
+	//   contact: 'me',
+	//   status: 'not done'
+	// }
+	const { author, title, isbn, img_url, description } = request.body;
 
+	// put it in the database
+
+	const sql =
+		'INSERT INTO books (author, title, isbn, img_url, description) VALUES ($1, $2, $3, $4, $5) RETURNING id;';
+
+	const safeValues = [author, title, isbn, img_url, description];
+	console.log(safeValues);
+	client.query(sql, safeValues).then((results) => {
+		const id = results.rows[0].id;
+		// console.log('results from sql', id);
+		// redirect to the individual task when done
+		console.log(results);
+		response.redirect(`/books/${id}`);
+	});
+}
+//=============================
 function renderHomePage(request, response) {
 	// go into the database
 	const sql = 'SELECT * FROM books;';
@@ -41,7 +71,6 @@ function renderHomePage(request, response) {
 		response.status(200).render('pages/index.ejs', { value: allBooks });
 	});
 }
-//======================
 function getOneBook(request, response) {
 	const id = request.params.book_id;
 	console.log('in the get one book', id);
@@ -57,7 +86,6 @@ function getOneBook(request, response) {
 		response.render('pages/books/detail', { value: myChosenBook });
 	});
 }
-//===========================
 function renderSearchForm(request, response) {
 	// render the search form
 	response.render('pages/searches/new.ejs');
@@ -99,6 +127,9 @@ function Book(book) {
 	this.description = book.description
 		? book.description
 		: 'No description available.';
+	this.isbn = book.industryIdentifiers
+		? book.industryIdentifiers[0].identifier
+		: 'No ISBN available.';
 }
 
 function notFoundHandler(req, res) {
@@ -107,16 +138,6 @@ function notFoundHandler(req, res) {
 
 app.use('*', notFoundHandler);
 
-// client
-// 	.connect()
-// 	.then(() => {
-// 		app.listen(PORT, () => {
-// 			console.log(`listening on ${PORT}`);
-// 		});
-// 	})
-// 	.catch((err) => {
-// 		console.log(err);
-// 	});
 function startServer() {
 	app.listen(PORT, () => {
 		console.log('Server is listening on port', PORT);

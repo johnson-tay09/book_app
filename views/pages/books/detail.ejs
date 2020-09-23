@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<link rel="stylesheet" href="./styles/reset.css" />
-		<link rel="stylesheet" href="./styles/base.css" />
-		<link rel="stylesheet" href="./styles/layout.css" />
-		<link rel="stylesheet" href="./styles/modules.css" />
+		<link rel="stylesheet" href="../styles/reset.css" />
+		<link rel="stylesheet" href="../styles/base.css" />
+		<link rel="stylesheet" href="../styles/layout.css" />
+		<link rel="stylesheet" href="../styles/modules.css" />
 		<title>Book Collection</title>
 	</head>
 	<body>
@@ -12,10 +12,10 @@
 			<a href="/">Home</a>
 		</header>
 		<main>
-			<h4>Favorite Book</h4>
+			<h4>Best Book</h4>
 			<ul>
 				<section>
-					<li><p><%= value.img_url %></p></li>
+					<li class="book"><img src="<%= value.image %>" alt="" /></li>
 					<li><p><%= value.title %></p></li>
 					<li><h2><%= value.author %></h2></li>
 					<li><h2><%= value.description %></h2></li>
