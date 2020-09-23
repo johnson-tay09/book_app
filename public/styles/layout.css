@@ -1,4 +1,8 @@
 /* mobile view */
+header {
+	margin-left: 27%;
+	width: 75%;
+}
 div {
 	margin: auto;
 	width: 50%;
