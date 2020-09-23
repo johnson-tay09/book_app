@@ -9,18 +9,16 @@
 		<link href="base.css" rel="stylesheet" />
 	</head>
 	<body>
-		<header>
-			<a href="/searchform">search</a>
-		</header>
+		<header><%- include('../layout/header') %></header>
 		<main>
 			<p><%= value.length %></p>
 			<h4>Saved Books</h4>
 			<ul>
 				<% value.forEach(book => { %>
 				<section>
-					<li><p><%= book.img_url %></p></li>
-					<li><p><%= book.title %></p></li>
-					<li><h2><%= book.author %></h2></li>
+					<li class="book"><img src="<%= book.img_url %>" alt="" /></li>
+					<li><h1><%= book.title %></h1></li>
+					<li><h3><%= book.author %></h3></li>
 					<li><a href="/books/<%= book.id %>">View Details</a></li>
 				</section>
 				<%})%>

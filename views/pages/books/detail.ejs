@@ -8,18 +8,16 @@
 		<title>Book Collection</title>
 	</head>
 	<body>
-		<header>
-			<a href="/">Home</a>
-		</header>
+		<header><%- include('../../layout/header') %></header>
 		<main>
 			<h4>Best Book</h4>
 			<ul>
 				<section>
-					<li class="book"><img src="<%= value.image %>" alt="" /></li>
-					<li><p><%= value.title %></p></li>
-					<li><h2><%= value.author %></h2></li>
-					<li><h2><%= value.description %></h2></li>
-					<li><h2><%= value.isbn %></h2></li>
+					<li class="book"><img src="<%= value.img_url %>" alt="" /></li>
+					<li><h1><%= value.title %></h1></li>
+					<li><h3><%= value.author %></h3></li>
+					<li><p><%= value.description %></p></li>
+					<li><h2>ISBN: <%= value.isbn %></h2></li>
 				</section>
 			</ul>
 		</main>

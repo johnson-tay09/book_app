@@ -32,24 +32,11 @@ app.post('/searches', collectFormInformation);
 app.get('/error', (request, response) => {
 	response.render('pages/error.ejs');
 });
-//============
 function saveBook(request, response) {
-	// collect the information from the form
-	// console.log(request.body);
-	// {
-	//   title: 'sort through stuff',
-	//   description: 'parse the house',
-	//   category: 'haunted',
-	//   contact: 'me',
-	//   status: 'not done'
-	// }
 	const { author, title, isbn, img_url, description } = request.body;
-
 	// put it in the database
-
 	const sql =
 		'INSERT INTO books (author, title, isbn, img_url, description) VALUES ($1, $2, $3, $4, $5) RETURNING id;';
-
 	const safeValues = [author, title, isbn, img_url, description];
 	console.log(safeValues);
 	client.query(sql, safeValues).then((results) => {
@@ -60,7 +47,7 @@ function saveBook(request, response) {
 		response.redirect(`/books/${id}`);
 	});
 }
-//=============================
+
 function renderHomePage(request, response) {
 	// go into the database
 	const sql = 'SELECT * FROM books;';
