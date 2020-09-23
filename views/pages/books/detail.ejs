@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<link rel="stylesheet" href="../styles/reset.css" />
-		<link rel="stylesheet" href="../styles/base.css" />
-		<link rel="stylesheet" href="../styles/layout.css" />
-		<link rel="stylesheet" href="../styles/modules.css" />
-
+		<%- include('../../layout/head') %>
 		<title>Book Collection</title>
 	</head>
 	<body>
@@ -35,8 +31,5 @@
 			</ul>
 		</main>
 	</body>
-	<footer>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="../../js/app.js"></script>
-	</footer>
+	<footer><%- include('../../layout/footer') %></footer>
 </html>
