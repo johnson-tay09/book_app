@@ -38,7 +38,10 @@ app.get('/error', (request, response) => {
 
 function deleteOneBook(request, response) {
 	const id = request.params.book_id;
-	let sql = 'DELETE FROM ';
+	let sql = 'DELETE FROM books WHERE id=$1;';
+	let safeValues = [id];
+	client.query(sql, safeValues);
+	response.status(200).redirect('/');
 }
 
 function updateOneBook(request, response) {

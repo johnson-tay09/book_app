@@ -21,14 +21,14 @@
 					<li><h2>ISBN: <%= value.isbn %></h2></li>
 					<button id="formButton" type="button">Update Details</button>
 					<form action="/delete/<%= value.id %>?_method=DELETE" method="POST">
-						<button>Delete Book</button>
+						<button type="submit">Delete Book</button>
 					</form>
 					<form
 						id="updateForm"
 						action="/update/<%= value.id %>?_method=PUT"
 						method="POST"
 					>
-						<fieldset><%- include('../../layout/edit') %></fieldset>
+						<fieldset><%- include('./edit') %></fieldset>
 						<button type="submit">Update Book</button>
 					</form>
 				</section>
