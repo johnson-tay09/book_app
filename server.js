@@ -122,23 +122,23 @@ function collectFormInformation(request, response) {
 		const bookArray = data.body.items;
 		// console.log(bookArray);
 		//a book is an object with key value pairs
-		const finalBookArray = bookArray.map((book) => new Book(book.volumeInfo));
+		const finalBookArray = bookArray.map((value) => new Book(value.volumeInfo));
 
 		response.render('pages/searches/show', { bookResults: finalBookArray });
 	});
 }
 
-function Book(book) {
-	this.image = book.imageLinks
-		? book.imageLinks.thumbnail.replace(/^http:\/\//i, 'https://')
+function Book(value) {
+	this.image = value.imageLinks
+		? value.imageLinks.thumbnail.replace(/^http:\/\//i, 'https://')
 		: 'https://i.imgur.com/J5LVHEL.jpg';
-	this.title = book.title;
-	this.author = book.authors;
-	this.description = book.description
-		? book.description
+	this.title = value.title;
+	this.author = value.authors;
+	this.description = value.description
+		? value.description
 		: 'No description available.';
-	this.isbn = book.industryIdentifiers
-		? book.industryIdentifiers[0].identifier
+	this.isbn = value.industryIdentifiers
+		? value.industryIdentifiers[0].identifier
 		: 'No ISBN available.';
 }
 

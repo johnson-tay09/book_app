@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta
-			name="”viewport”"
-			content="”width"
-			="device-width,"
-			initial-scale="1”"
-		/>
-		<link rel="stylesheet" href="./styles/reset.css" />
-		<link rel="stylesheet" href="./styles/base.css" />
-		<link rel="stylesheet" href="./styles/layout.css" />
-		<link rel="stylesheet" href="./styles/modules.css" />
+			<%- include('../../layout/head') %>
 		<title>Book Collection</title>
 	</head>
 	<body>
@@ -25,14 +16,11 @@
 					<li class="title"><h1><%= book.title %></li>
 					<li class="author"><h3><%= book.author %></h3></li>
 					<li class="description"><p><%= book.description %></p></li>
-					<!-- <li><a href="../books/<%= book.id %>">Add Book to Favorites</a></li> -->
+				
 					<form  id="create-form" action="/books" method="post">
 					<fieldset>
-						<input type="hidden" name="author" value="<%= book.author %>">
-						<input type="hidden" name="title" value="<%= book.title %>">
-						<input type="hidden" name="isbn" value="<%= book.isbn %>">
-						<input type="hidden" name="img_url" value="<%= book.image %>">
-						<input type="hidden" name="description" value="<%= book.description %>">
+					
+						<%- include('../books/edit', {value:book}) %>
 						<button type="submit">Add to Favorites</button>
 					  </fieldset>
 					  </form>
@@ -42,4 +30,7 @@
 			</div>
 		</main>
 	</body>
+	<footer>
+		<%- include('../../layout/footer') %>
+	</footer>
 </html>
