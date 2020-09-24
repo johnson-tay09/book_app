@@ -17,12 +17,12 @@
 					<li class="author"><h3><%= book.author %></h3></li>
 					<li class="description"><p><%= book.description %></p></li>
 				
-					<form  id="create-form" action="/books" method="post">
-					<fieldset>
+					<form  action="/books" method="post">
+					<fieldset id="create-form">
 					
 						<%- include('../books/edit', {value:book}) %>
-						<button type="submit">Add to Favorites</button>
-					  </fieldset>
+					</fieldset>
+					<button type="submit">Add to Favorites</button>
 					  </form>
 				</section>
 					<% }) %>
